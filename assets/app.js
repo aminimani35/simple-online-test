@@ -15,13 +15,25 @@ form.addEventListener('submit' , e => {
         }
         
     })
+    // showing the result 
+    scrollTo(0,0);
     
-    finalScore.textContent = '%' + score;
     result.classList.remove('d-none');
     console.log(finalScore)
     
     // console.log(finalScore);
     // console.log(userAnswer);
     // console.log(correctAnswers);
-    console.log(`Your score is ${score}`);
+    // console.log(`Your score is ${score}`);
+    // animating the result 
+    let output = 0;
+    const timer = setInterval(()=>{
+        finalScore.textContent = '%' + output;
+        if (output === score){
+            clearInterval('timer');
+        }
+        else{
+            output++;
+        }
+    },10)
 })
